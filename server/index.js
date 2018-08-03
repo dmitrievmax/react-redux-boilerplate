@@ -1,9 +1,5 @@
-const path = require('path');
 const express = require('express');
 const setupFrontend = require('./middlewares/frontendMiddleware');
-
-// sets config path
-process.env["NODE_CONFIG_DIR"] = path.join(__dirname, '/config/');
 const config = require('config');
 
 const app = express();

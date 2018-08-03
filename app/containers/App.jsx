@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader';
 class App extends Component {
 	render() {
 		return (
-			<h1>Hello from  App!!!!</h1>
+			<h1>Hello from  App!!!!!</h1>
 		);
 	}
 }

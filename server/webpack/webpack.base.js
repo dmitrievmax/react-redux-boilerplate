@@ -1,3 +1,4 @@
+const config = require('config');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -12,13 +13,13 @@ const plugins = [
 		},
 	}),
 ];
-
+console.log(config.get('outputPath'))
 module.exports = options => ({
 	mode: options.mode,
 	entry: options.entry,
 	output: Object.assign({
-		path: path.resolve(process.cwd(), 'build'),
-		publicPath: '/'
+		path: config.get('outputPath'),
+		publicPath: config.get('publicPath')
 	}, options.output),
 	optimization: options.optimisation,
 	module: {
