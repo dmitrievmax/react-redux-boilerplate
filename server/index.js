@@ -13,5 +13,5 @@ const host = config.get('host') || 'localhost';
 const port = config.get('port');
 
 app.listen(port, host, () => {
-	console.log(`Up and running on ${host}:${port}`);
+	console.log(`Server is up and running --> http://${host}:${port}`);
 });
