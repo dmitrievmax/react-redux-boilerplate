@@ -1,5 +1,4 @@
 const config = require('config');
-const path = require('path');
 const webpack = require('webpack');
 
 const plugins = [
@@ -13,7 +12,7 @@ const plugins = [
 		},
 	}),
 ];
-console.log(config.get('outputPath'))
+
 module.exports = options => ({
 	mode: options.mode,
 	entry: options.entry,
