@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'sanitize.css';
 
 // entry point for styles
-import './styles.css';
+import './styles.scss';
 
 import App from './containers/App';
 

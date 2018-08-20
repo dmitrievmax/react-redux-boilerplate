@@ -23,11 +23,12 @@ module.exports = require('./webpack.base')({
 	module: {
 		rules: [
 			{ // Preprocess app`s css, preprocessors could be included here
-				test: /\.css$/,
+				test: /\.scss$/,
 				exclude: /node_modules/,
 				use: [
 					'style-loader',
-					'css-loader'
+					'css-loader',
+					'sass-loader',
 				],
 			},
 		]
