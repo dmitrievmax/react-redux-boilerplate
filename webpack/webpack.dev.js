@@ -20,6 +20,18 @@ module.exports = require('./webpack.base')({
 		filename: '[name].js',
 		chunkFilename: '[name].chunk.js',
 	},
+	module: {
+		rules: [
+			{ // Preprocess app`s css, preprocessors could be included here
+				test: /\.css$/,
+				exclude: /node_modules/,
+				use: [
+					'style-loader',
+					'css-loader'
+				],
+			},
+		]
+	},
 	optimisation: {
 		minimize: false
 	},

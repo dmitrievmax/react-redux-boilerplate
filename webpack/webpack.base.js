@@ -28,11 +28,6 @@ module.exports = options => ({
 				exclude: /node_modules/,
 				use: ['babel-loader']
 			},
-			{ // Preprocess app`s css, preprocessors could be included here
-				test: /\.css$/,
-				exclude: /node_modules/,
-				use: ['style-loader', 'css-loader'],
-			},
 			{
 				// Preprocess 3rd party .css files located in node_modules
 				test: /\.css$/,
@@ -86,7 +81,7 @@ module.exports = options => ({
 					},
 				],
 			}
-		]
+		].concat(options.module.rules)
 	},
 	plugins: plugins.concat(options.plugins),
 	resolve: {

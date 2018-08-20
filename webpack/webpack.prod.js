@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const plugins = [
 	// Minify and optimize the index.html
@@ -25,6 +26,10 @@ const plugins = [
 		hashDigest: 'hex',
 		hashDigestLength: 20,
 	}),
+	new MiniCssExtractPlugin({
+		filename: '[name].[contenthash].css',
+		chunkFilename: '[name].[contenthash].chunk.css',
+	}),
 ];
 
 module.exports = require('./webpack.base')({
@@ -33,6 +38,18 @@ module.exports = require('./webpack.base')({
 	output: {
 		filename: '[name].[chunkhash].js',
 		chunkFilename: '[name].[chunkhash].chunk.js',
+	},
+	module: {
+		rules: [
+			{ // Preprocess app`s css, preprocessors could be included here
+				test: /\.css$/,
+				exclude: /node_modules/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					'css-loader'
+				],
+			},
+		]
 	},
 	optimization: {
 		minimize: true,
