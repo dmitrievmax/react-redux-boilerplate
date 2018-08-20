@@ -46,7 +46,8 @@ module.exports = require('./webpack.base')({
 				exclude: /node_modules/,
 				use: [
 					MiniCssExtractPlugin.loader,
-					'css-loader'
+					'css-loader',
+					'postcss-loader',
 				],
 			},
 		]
