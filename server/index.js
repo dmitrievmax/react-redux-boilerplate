@@ -1,6 +1,6 @@
 const express = require('express');
-const setupFrontend = require('./middlewares/frontendMiddleware');
 const config = require('config');
+const setupFrontend = require('./middlewares/frontendMiddleware');
 
 const app = express();
 
@@ -13,5 +13,7 @@ const host = config.get('host') || 'localhost';
 const port = config.get('port');
 
 app.listen(port, host, () => {
+	/* eslint-disable no-console */
 	console.log(`Server is up and running --> http://${host}:${port}`);
+	/* eslint-disable no-console */
 });

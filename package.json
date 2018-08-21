@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js --color -p --progress --hide-modules --display-optimization-bailout",
     "build:clean": "rimraf ./build",
     "lint": "npm run lint:js",
-    "lint:js": "eslint app --ext .js,.jsx",
+    "lint:js": "eslint app server --ext .js,.jsx",
     "lint:js:fix": "eslint --fix",
     "start": "cross-env NODE_ENV=development node server",
     "start:production": "npm run build && npm run start:prod",
@@ -17,13 +17,20 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "lint-staged": {
-    "*.js": ["npm run lint:js:fix", "git add"],
-    "*.jsx": ["npm run lint:js:fix", "git add"]
+    "*.js": [
+      "npm run lint:js:fix",
+      "git add"
+    ],
+    "*.jsx": [
+      "npm run lint:js:fix",
+      "git add"
+    ]
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "compression": "^1.7.3",
+    "config": "^2.0.1",
     "cross-env": "^5.2.0",
     "express": "^4.16.3",
     "react": "^16.4.2",
@@ -42,7 +49,6 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.14",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "config": "^2.0.1",
     "css-loader": "^1.0.0",
     "cssnano": "^4.0.5",
     "eslint": "^5.4.0",
