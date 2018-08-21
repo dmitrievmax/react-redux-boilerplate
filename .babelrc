@@ -3,7 +3,11 @@
     [
       "env",
       {
-        "modules": false
+        "modules": false,
+        "targets": {
+          "browsers": ["last 2 versions"]
+        },
+        "useBuiltIns": true
       }
     ],
     "react"
@@ -21,7 +25,7 @@
       ]
     },
     "test": {
-      "plugins": []
+      "presets": ["env"]
     }
   }
 }
