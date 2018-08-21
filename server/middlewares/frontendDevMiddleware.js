@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -12,4 +13,16 @@ module.exports = (app) => {
 
 	app.use(middleware);
 	app.use(webpackHotMiddleware(compiler));
+
+	app.get('*', (req, res) => {
+		const fs = middleware.fileSystem;
+
+		fs.readFile(path.join(compiler.outputPath, 'index.html'), (err, file) => {
+			if (err) {
+				res.sendStatus(404);
+			} else {
+				res.send(file.toString());
+			}
+		});
+	});
 };
