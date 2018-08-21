@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js --color -p --progress --hide-modules --display-optimization-bailout",
     "build:clean": "rimraf ./build",
     "lint": "npm run lint:js",
-    "lint:js": "eslint app server --ext .js,.jsx",
+    "lint:js": "eslint . --ext .js,.jsx",
     "lint:js:fix": "eslint --fix",
     "start": "cross-env NODE_ENV=development node server",
     "start:production": "npm run build && npm run start:prod",
