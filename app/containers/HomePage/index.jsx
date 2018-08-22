@@ -12,12 +12,12 @@ class HomePage extends Component {
 		const { counter } = this.props;
 
 		return (
-			<div>
-				<div>This is a home page!</div>
+			<div className="home-page">
+				<div className="home-page__title">Welcome to the React-redux-boilerplate</div>
 				<div>
 					{counter > 1
-						? <i>It is your <b>{counter}</b> visit</i>
-						: <i>This is your first time here!</i>
+						? <i>Page was visited: <b>{counter}</b> times</i>
+						: <i>It is your first time here!</i>
 					}
 				</div>
 			</div>

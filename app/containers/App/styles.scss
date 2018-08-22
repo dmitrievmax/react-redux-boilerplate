@@ -1,0 +1,21 @@
+.app-nav {
+	display: flex;
+	border-bottom: 2px solid;
+
+	&__item {
+		padding: 15px;
+		color: #000;
+		text-transform: uppercase;
+		text-decoration: none;
+		font-weight: bold;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		&--active {
+			color: #607d8b;
+			text-decoration: underline;
+		}
+	}
+}

@@ -1,15 +1,27 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 import HomePage from '../HomePage/Loadable';
 import AboutPage from '../AboutPage/Loadable';
 
 const App = () => (
 	<div>
-		<h1>Hello from the App!</h1>
-		<nav>
-			<Link to="/">Home</Link>
-			<Link to="/about">About</Link>
+		<nav className="app-nav">
+			<NavLink
+				exact
+				to="/"
+				className="app-nav__item"
+				activeClassName="app-nav__item--active"
+			>
+				Home
+			</NavLink>
+			<NavLink
+				to="/about"
+				className="app-nav__item"
+				activeClassName="app-nav__item--active"
+			>
+				About
+			</NavLink>
 		</nav>
 		<Switch>
 			<Route exact path="/" component={HomePage} />

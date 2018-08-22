@@ -9,7 +9,7 @@ import App from './containers/App';
 import 'sanitize.css';
 
 // entry point for styles
-import './styles.scss';
+import './styles/core.scss';
 
 const store = configureStore();
 
