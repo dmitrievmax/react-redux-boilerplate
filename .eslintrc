@@ -7,16 +7,16 @@
     "import"
   ],
   "rules": {
-    "comma-dangle": "off",
-    "global-require": "off",
-    "import/no-extraneous-dependencies": "off",
-    "indent": ["error", "tab"],
-    "no-tabs": "off",
+    "comma-dangle": 0,
+    "global-require": 0,
+    "import/no-extraneous-dependencies": 0,
+    "indent": [2, "tab"],
+    "no-tabs": 0,
     "react/jsx-filename-extension": [
       1, { "extensions": [".js", ".jsx"] }
     ],
-    "react/jsx-indent": ["error", "tab"],
-    "react/prefer-stateless-function": "off"
+    "react/jsx-indent": [2, "tab"],
+    "react/jsx-one-expression-per-line": 0
   },
   "env": {
     "browser": true,
