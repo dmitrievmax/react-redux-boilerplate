@@ -1,12 +1,14 @@
 import { createSelector } from 'reselect';
+import config from '../../appConfig';
 
 export const moduleName = 'homePage';
+const prefix = `${config.name}/${moduleName}`;
 
 /**
  * Constants
  */
 
-export const ADD_VISIT = 'ADD_VISIT';
+export const ADD_VISIT = `${prefix}/ADD_VISIT`;
 
 /**
  * Reducer
