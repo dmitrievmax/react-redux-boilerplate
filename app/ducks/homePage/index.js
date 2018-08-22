@@ -1,3 +1,5 @@
+import { createSelector } from 'reselect';
+
 export const moduleName = 'homePage';
 
 /**
@@ -38,4 +40,4 @@ export const addVisit = () => ({
  */
 
 export const stateSelector = state => state[moduleName];
-export const visitCounterSelector = state => stateSelector(state).visitCounter;
+export const visitCounterSelector = createSelector(stateSelector, state => state.visitCounter);
