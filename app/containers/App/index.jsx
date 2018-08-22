@@ -1,8 +1,8 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import { Route, NavLink, Switch } from 'react-router-dom';
-import HomePage from '../HomePage/Loadable';
-import AboutPage from '../AboutPage/Loadable';
+import HomePage from 'containers/HomePage/Loadable';
+import AboutPage from 'containers/AboutPage/Loadable';
 
 const App = () => (
 	<div>
