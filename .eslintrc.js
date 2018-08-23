@@ -18,7 +18,12 @@ module.exports = {
 		'react/jsx-indent': [2, 'tab'],
 		'react/jsx-one-expression-per-line': 0,
 		'react/destructuring-assignment': 0,
-		'react/jsx-indent-props': [2, 'tab']
+		'react/jsx-indent-props': [2, 'tab'],
+		'react/button-has-type': 0,
+		'object-curly-newline': [2, {
+			'ImportDeclaration': { 'multiline': true, 'minProperties': 7 },
+		}],
+		'no-shadow': 0
 	},
 	env: {
 		'browser': true,

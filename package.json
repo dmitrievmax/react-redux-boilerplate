@@ -36,6 +36,10 @@
       "!app/**/*.test.{js,jsx}",
       "!app/app.js"
     ],
+    "moduleDirectories": [
+      "node_modules",
+      "app"
+    ],
     "testMatch": [
       "**/?(*.)test.js?(x)"
     ],
