@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Grid from 'components/Grid';
 import { pendingSelector, photosSelector, getAllPhotos } from '../../ducks/galleryPage';
 
 const GalleryPage = ({ pending, photos, getAllPhotos }) => {
@@ -14,7 +15,15 @@ const GalleryPage = ({ pending, photos, getAllPhotos }) => {
 			<div>
 				{photos.length === 0
 					? <div>There are no photos yet :( <button onClick={getAllPhotos}>Download</button></div>
-					: photos.map(p => <img key={p.id} src={p.thumbnailUrl} alt={p.title} />)
+					: (
+						<Grid container spacing={24}>
+							{photos.map(p => (
+								<Grid item key={p.id} xs={12} sm={4} md={3} lg={2}>
+									<img src={p.thumbnailUrl} alt={p.title} style={{ width: '100%' }} />
+								</Grid>
+							))}
+						</Grid>
+					)
 				}
 			</div>
 		</div>

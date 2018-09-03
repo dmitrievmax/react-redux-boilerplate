@@ -1,0 +1,92 @@
+$alignments: (flex-start, center, flex-end, stretch, baseline);
+$breakpoints: (xs: 0px, sm: 600px, md: 960px, lg: 1280px, xl: 1920px);
+$columnsCount: 12;
+$directions: (row, row-reverse, column, column-reverse);
+$gridSizes: (auto, true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+$gutters: (8, 16, 24, 32, 40);
+$justifiers: (flex-start, center, flex-end, space-between, space-around, space-evenly);
+$wraps: (nowrap, wrap, wrap-reverse);
+
+.grid {
+	&-container {
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: wrap;
+
+		// alignments
+		@each $alignment in $alignments {
+			&--align-items-#{$alignment} {
+				align-items: $alignment;
+			}
+		}
+
+		// directions
+		@each $direction in $directions {
+			&--direction-#{$direction} {
+				flex-direction: $direction;
+			}
+		}
+
+		// justify content
+		@each $justify in $justifiers {
+			&--justify-#{$justify} {
+				justify-content: $justify;
+			}
+		}
+
+		// gutters
+		@each $gutter in $gutters {
+			&--spacing-#{$gutter} {
+				width: calc(100% + #{$gutter}px);
+				margin: -($gutter/2)+px;
+
+				& > .grid-item {
+					padding: ($gutter/2)+px;
+				}
+			}
+		}
+
+		// wrap
+		@each $wrap in $wraps {
+			&---wrap-#{$wrap} {
+				flex-wrap: $wrap;
+			}
+		}
+	}
+
+	&-item {
+		box-sizing: border-box;
+		margin: 0;
+
+		// breakpoints
+		@each $breakpointName, $breakpointValue in $breakpoints {
+			@each $gridSize in $gridSizes {
+				@media (min-width: $breakpointValue) {
+					&--#{$breakpointName}-#{$gridSize} {
+						// even layout (space between items will be divided evenly without reference to flex-basis)
+						@if ($gridSize == true) {
+							flex-basis: 0;
+							flex-grow: 1;
+							max-width: 100%;
+						}
+
+						// auto layout
+						@if ($gridSize == auto) {
+							flex-basis: auto;
+							flex-grow: 0;
+							max-width: none;
+						}
+
+						// column-based layout
+						@if(type-of($gridSize) == number) {
+							$width: (100% / $columnsCount) * $gridSize;
+							flex-basis: $width;
+							flex-grow: 0;
+							max-width: $width;
+						}
+					}
+				}
+			}
+		}
+	}
+}
