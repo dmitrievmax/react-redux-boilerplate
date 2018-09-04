@@ -23,7 +23,9 @@ module.exports = {
 		'object-curly-newline': [2, {
 			'ImportDeclaration': { 'multiline': true, 'minProperties': 7 },
 		}],
-		'no-shadow': 0
+		'no-shadow': 0,
+		'jsx-a11y/label-has-associated-control': 0,
+		'jsx-a11y/label-has-for': 0
 	},
 	env: {
 		'browser': true,

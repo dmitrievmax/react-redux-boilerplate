@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addVisit, visitCounterSelector } from 'ducks/homePage';
+import ContactForm from 'containers/ContactsForm';
 
 class HomePage extends Component {
 	componentDidMount() {
 		this.props.addVisit();
+	}
+
+	handleSubmit = (values) => {
+		console.log(values); // eslint-disable-line
 	}
 
 	render() {
@@ -20,6 +25,7 @@ class HomePage extends Component {
 						: <i>It is your first time here!</i>
 					}
 				</div>
+				<ContactForm onSubmit={this.handleSubmit} />
 			</div>
 		);
 	}
