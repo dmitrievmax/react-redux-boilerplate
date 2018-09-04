@@ -16,7 +16,7 @@ const GalleryPage = ({ pending, photos, getAllPhotos }) => {
 				{photos.length === 0
 					? <div>There are no photos yet :( <button onClick={getAllPhotos}>Download</button></div>
 					: (
-						<Grid container spacing={24}>
+						<Grid container gap={24}>
 							{photos.map(p => (
 								<Grid item key={p.id} xs={12} sm={4} md={3} lg={2}>
 									<img src={p.thumbnailUrl} alt={p.title} style={{ width: '100%' }} />
