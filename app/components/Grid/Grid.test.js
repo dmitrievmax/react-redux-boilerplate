@@ -18,8 +18,32 @@ describe('<Grid />', () => {
 	});
 
 	it('should apply prop spacing', () => {
-		const wrapper = shallow(<Grid container spacing={24} />);
+		const wrapper = shallow(<Grid container gap={24} />);
 
-		expect(wrapper.hasClass('grid-container--spacing-24'));
+		expect(wrapper.hasClass('grid-container--gap-24')).toBeTruthy();
+	});
+
+	it('should apply grid xs prop', () => {
+		const wrapper = shallow(<Grid item xs={12} />);
+
+		expect(wrapper.hasClass('grid-item--xs-12')).toBeTruthy();
+	});
+
+	it('should apply alignment prop', () => {
+		const wrapper = shallow(<Grid grid alignItems="center" />);
+
+		expect(wrapper.hasClass('grid-container--align-items-center')).toBeTruthy();
+	});
+
+	it('should apply justify prop', () => {
+		const wrapper = shallow(<Grid grid justify="center" />);
+
+		expect(wrapper.hasClass('grid-container--justify-center')).toBeTruthy();
+	});
+
+	it('should apply wrap prop', () => {
+		const wrapper = shallow(<Grid grid wrap="wrap-reverse" />);
+
+		expect(wrapper.hasClass('grid-container--wrap-wrap-reverse')).toBeTruthy();
 	});
 });

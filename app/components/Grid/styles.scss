@@ -3,7 +3,7 @@ $breakpoints: (xs: 0px, sm: 600px, md: 960px, lg: 1280px, xl: 1920px);
 $columnsCount: 12;
 $directions: (row, row-reverse, column, column-reverse);
 $gridSizes: (auto, true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
-$gutters: (8, 16, 24, 32, 40);
+$gaps: (8, 16, 24, 32, 40);
 $justifiers: (flex-start, center, flex-end, space-between, space-around, space-evenly);
 $wraps: (nowrap, wrap, wrap-reverse);
 
@@ -34,14 +34,14 @@ $wraps: (nowrap, wrap, wrap-reverse);
 			}
 		}
 
-		// gutters
-		@each $gutter in $gutters {
-			&--spacing-#{$gutter} {
-				width: calc(100% + #{$gutter}px);
-				margin: -($gutter/2)+px;
+		// $gaps
+		@each $gap in $gaps {
+			&--gap-#{$gap} {
+				width: calc(100% + #{$gap}px);
+				margin: -($gap/2)+px;
 
 				& > .grid-item {
-					padding: ($gutter/2)+px;
+					padding: ($gap/2)+px;
 				}
 			}
 		}
