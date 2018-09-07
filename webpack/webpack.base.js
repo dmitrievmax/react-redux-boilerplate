@@ -29,12 +29,6 @@ module.exports = options => ({
 				use: ['babel-loader']
 			},
 			{
-				// Preprocess 3rd party .css files located in node_modules
-				test: /\.css$/,
-				include: /node_modules/,
-				use: ['style-loader', 'css-loader'],
-			},
-			{
 				test: /\.(eot|otf|ttf|woff|woff2)$/,
 				use: 'file-loader',
 			},

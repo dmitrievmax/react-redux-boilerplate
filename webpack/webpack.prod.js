@@ -51,6 +51,16 @@ module.exports = require('./webpack.base')({
 					'sass-loader',
 				],
 			},
+			{
+				// Preprocess 3rd party .css files located in node_modules
+				test: /\.css$/,
+				include: /node_modules/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'postcss-loader',
+				],
+			},
 		]
 	},
 	optimization: {
